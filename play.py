@@ -1,5 +1,5 @@
 import pygame
-from constants import *  # Assuming constants like WIDTH, HEIGHT, FPS are defined here
+from constants import *
 from game import Game
 
 pygame.font.init()

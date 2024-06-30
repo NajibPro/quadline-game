@@ -24,6 +24,8 @@ def p(s):
         return 1
     if(s == symbol["cross"]):
         return 0
+    
+
 class Board:
     # The att of the class is
     # self.size: the size of the board (by default 6*6)

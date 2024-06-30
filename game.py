@@ -1,4 +1,3 @@
-import numpy as np
 from board import Board
 from ai_player import *
 
@@ -18,7 +17,7 @@ class Game:
     def __init__(self, cross_player, circle_player, size=6):
         self.cross_player = cross_player
         self.circle_player = circle_player
-        self.board = Board(size)
+        self.board: Board = Board(size)
         self.ai = AI_player(symbol["circle"])
         self.cross_player_score = self.circle_player_score = 0
 
@@ -54,9 +53,6 @@ class Game:
     @board.setter
     def board(self, board) -> Board:
         self.__board = board
-    
-    def draw_game(self):
-        self.board.display_board()
 
     def make_move_human(self):
         if  self.player_turn() == symbol["cross"]:
