@@ -1,4 +1,4 @@
-## QuadRow game against AI:
+## QuadLine Game Against AI:
 
 This is a game inspired from the famous connect4 game (actually i was willing to implement it instead but i didn't read the rules of it well so I ended up creating a whole new game hehe :) ). You play against an AI created using the MinMax algorithm, lets see if you can beat it.
 
