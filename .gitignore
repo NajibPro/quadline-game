@@ -1,0 +1,4 @@
+/__pycache__
+*.prof
+stat.py
+stat2.py
