@@ -20,7 +20,7 @@ def reverse(s):
         str = i + str
     return str
 
-DEPTH = 2
+DEPTH = 3
 
 # find the next cell to check according to an order similar to C++
 # pairs<int, int> type
@@ -35,6 +35,9 @@ def next_move(i, j, size):
         j += 1
 
     return [i, j]
+
+transposition_table = {}
+
 
 class AI_player:
     # class att are:
@@ -97,6 +100,9 @@ class AI_player:
     def minimax(self, board: Board, depth, alpha, beta, player_symbol):
         if depth == 0 or board.is_board_full():
             return self.evaluation_function(board)
+        
+        if board.representation in transposition_table:
+            return transposition_table[board.representation]
 
         if player_symbol == symbol["max"]:
             possible_next_states = self.actions(board)
@@ -110,6 +116,7 @@ class AI_player:
                 if beta <= alpha:
                     break
 
+            transposition_table[board.representation] = max_evaluation
             return max_evaluation
 
         elif player_symbol == symbol["min"]:
@@ -124,6 +131,7 @@ class AI_player:
                 if beta <= alpha:
                     break
 
+            transposition_table[board.representation] = min_evaluation
             return min_evaluation
         
     def next_move(self, board: Board):
@@ -140,6 +148,7 @@ class AI_player:
         depth = DEPTH
 
         if self.symbol == symbol["max"]:
+
             possible_next_states = self.actions(copy_board)
             max_evaluation = -np.inf
             for child in possible_next_states:

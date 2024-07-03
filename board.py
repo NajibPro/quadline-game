@@ -183,7 +183,7 @@ class Board:
             if all(board[(row + i) * size + y] == str(symbol) for i in range(n)):
                 total_count += 1
 
-        # Check diagonal down-right lines
+        # Check diagonal down-right linesF
         for i in range(n):
             if x - i < 0 or y - i < 0 or x - i + n > size or y - i + n > size:
                 continue
